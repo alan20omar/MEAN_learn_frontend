@@ -7,7 +7,7 @@
                     <h3 class="fw-bold mb-0 float-start">Task list</h3>
                 </div>
                 <div class="col-5">
-                    <button type="button" class="btn btn-success float-right">New task list</button>
+                    <button routerLink="/new-task-list" type="button" class="btn btn-success float-right">New task list</button>
                 </div>
             </div>
             <div class="row border pt-2 pb-2">
@@ -27,7 +27,7 @@
                     <h3 class="fw-bold mb-0 float-start">Linked tasks </h3>
                 </div>
                 <div class="col-5">
-                    <button type="button" class="btn btn-success float-right">New task</button>
+                    <button (click)="createNewTask()" type="button" class="btn btn-success float-right">New task</button>
                 </div>
             </div>
             <div class="row border pt-2 pb-2">

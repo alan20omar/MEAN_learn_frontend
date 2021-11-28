@@ -1,0 +1,19 @@
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <div class="mb-3">
+                <label for="tasklist" class="form-label">
+                    <h3>Add new task on "{{titleTaskList}}"</h3>
+                </label>
+                <input #taskTitleInput type="text" class="form-control" id="tasklist" placeholder="Enter Title">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6 row justify-content-around">
+            <button [routerLink]="['/task-list',taskListId]" type="button" class="btn btn-secondary">Cancel</button>
+            <button (click)="createNewTask(taskTitleInput.value)" type="button" class="btn btn-primary">Create task list</button>
+        </div>
+    </div>
+</div>
+

@@ -22,7 +22,7 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getAllTaskLists().subscribe((data: TaskListModel[]) => {
       this.tasksLists = data;
-      this.router.navigate(['task-list/', this.tasksLists[0]._id]);
+      // this.router.navigate(['task-list/', this.tasksLists[0]._id]);
     });
     
     this.activateRoute.params.subscribe((params: Params) => {
@@ -48,9 +48,26 @@ export class TaskComponent implements OnInit {
   }
 
   deleteTask(task: TaskModel){
-    // event.stopPropagation()
     this.taskService.deleteTask(task).subscribe((data: TaskModel) => {
       this.tasks = this.tasks.filter(t => t._id != data._id);
     });
+  }
+
+  createNewTask(){
+    if (!this.tasksLists){
+      alert('Please create a new task list first!');
+      return;
+    }
+    this.activateRoute.params.subscribe((params: Params) => {
+      const taskListId = params.taskListId;
+      if (!taskListId) {
+        alert('Please select a task list first!');
+        return;
+      }
+      // Route for create a new task
+      this.router.navigate(['./new-task'], { relativeTo: this.activateRoute });
+    });
+    
+
   }
 }
