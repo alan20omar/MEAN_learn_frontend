@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules//bootstrap-scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+
+$firstColor: rgb(255, 166, 0);
+$secondColor: rgb(240, 54, 54);
+
+html, body{
+    background: linear-gradient(to right top, $firstColor 0%, $secondColor 150%);
+    height: 100%;
+    // font-family: 'Outfit';
+    color: black;
+}

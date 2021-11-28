@@ -1,0 +1,45 @@
+<div class="task-container container border mt-4">
+    <h2 class="fw-bold m-2 p-2 text-center"> Task Manager</h2>
+    <div class="row border">
+        <div class="col-4">
+            <div class="row border pt-2 pb-2 align-items-center">
+                <div class="col-7">
+                    <h3 class="fw-bold mb-0 float-start">Task list</h3>
+                </div>
+                <div class="col-5">
+                    <button type="button" class="btn btn-success float-right">New task list</button>
+                </div>
+            </div>
+            <div class="row border pt-2 pb-2">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li *ngFor="let item of tasksLists" [routerLink]="['/task-list',item._id]" routerLinkActive="active" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                            <span title="{{item.title}}">{{item.title}}</span>
+                            <span (click)="deleteTaskList(item);$event.stopPropagation()" title="Delate this task list" class="badge text-light bg-danger rounded-pill p-1.5">X</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="row border pt-2 pb-2 align-items-center">
+                <div class="col-7">
+                    <h3 class="fw-bold mb-0 float-start">Linked tasks </h3>
+                </div>
+                <div class="col-5">
+                    <button type="button" class="btn btn-success float-right">New task</button>
+                </div>
+            </div>
+            <div class="row border pt-2 pb-2">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li *ngFor="let item of tasks" (click)="taskClicked(item)" title="Click to change the status of this Task" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cursor-pointer">
+                            <span [class.mark-completed]="item.completed">{{item.title}}</span>
+                            <span (click)="deleteTask(item);$event.stopPropagation()" title="Delate this task" class="badge text-light bg-danger rounded-pill p-1.5">X</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
